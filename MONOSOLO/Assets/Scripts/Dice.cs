@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Dice : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public TextMeshPro diceText;
+    public TMP_Text diceText;
 
     public int nummer = 0;
 
@@ -20,11 +21,14 @@ public class Dice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     
         if (dicerolled == true)
         {
-            nummer = Random.Range(0, 12);
+            nummer = Random.Range(2, 13);
 
-            diceText.text = $"You rolled: {nummer} ";
+            diceText.SetText( $"You rolled: {nummer} ") ;
+
+            dicerolled = false;
         }
 
 
@@ -34,4 +38,9 @@ public class Dice : MonoBehaviour
         }
 
     }   
+
+    public void OnClick()
+    {
+        dicerolled = true;
+    }
 }
