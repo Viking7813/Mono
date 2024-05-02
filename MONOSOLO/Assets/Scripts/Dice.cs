@@ -27,8 +27,6 @@ public class Dice : MonoBehaviour
             nummer = Random.Range(2, 13);
 
             diceText.SetText( $"You rolled: {nummer} ") ;
-
-            dicerolled = false;
         }
 
 

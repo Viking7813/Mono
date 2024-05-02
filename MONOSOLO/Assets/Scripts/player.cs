@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Dice dice;
+
+    public Playermananger playermananger;
 
     public int id;
 
@@ -18,6 +21,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (dice.dicerolled == true)
+        {
+
+            index += dice.nummer;
+            transform.position = playermananger.tiles[index].transform.position;
+            dice.dicerolled = false;
+        }
     }
 }
