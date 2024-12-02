@@ -13,6 +13,8 @@ public class Dice : MonoBehaviour
     public int nummer = 0;
 
     public bool dicerolled = false;
+
+    public bool playermoved = false;
     void Start()
     {
         
@@ -22,23 +24,15 @@ public class Dice : MonoBehaviour
     void Update()
     {
      
-        if (dicerolled == true)
-        {
-            nummer = Random.Range(2, 13);
-
-            diceText.SetText( $"You rolled: {nummer} ") ;
-        }
-
-
-        else if (dicerolled == false)
-        {
-
-        }
-
     }   
 
     public void OnClick()
     {
-        dicerolled = true;
+        dicerolled = true; // kollar om tärningen blivit rullad
+        for (int i = 0; i < 1; i++)
+        {
+            nummer = Random.Range(2, 13); // genererar ett random nummer mellan 2 och 12
+            diceText.SetText($"You rolled: {nummer} "); // skriver ut vilket nummer du fick.
+        }
     }
 }
